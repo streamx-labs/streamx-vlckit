@@ -2,28 +2,51 @@
 
 import PackageDescription
 
-struct PackageMetadata {
-    static let version: String = "3.7.2"
-    static let MobileChecksum: String = "c9c3a794e8585198b59c6bb7da5418a3194ffa1ffa6f9a1cbdf4dc0ea26dc6cf"
-}
-
 let package = Package(
-    name: "vlckit",
+    name: "VLC",
     platforms: [
-        .iOS(.v15),
-    ],
-    products: [
-        .library(
-            name: "MobileVLCKit",
-            targets: ["MobileVLCKit"]
-        ),
-    ],
-    targets: [
-        .binaryTarget(
-            name: "MobileVLCKit",
-            url: "https://github.com/streamx-labs/streamx-vlckit/downloads/\(PackageMetadata.version)/MobileVLCKit.xcframework.zip",
-            checksum: PackageMetadata.MobileChecksum
-        )
-    ]
+    .iOS(.v14),
+    .tvOS(.v14),
+    .macOS(.v12),
+  ],
+  products: [
+    .library(
+      name: "VLC",
+      targets: [
+        "VLC",
+      ]
+    ),
+  ],
+  targets: [
+    .target(
+      name: "VLC",
+      dependencies: [
+        .target(name: "MobileVLCKit", condition: .when(platforms: [.iOS])),
+        .target(name: "TVVLCKit", condition: .when(platforms: [.tvOS])),
+        .target(name: "VLCKit", condition: .when(platforms: [.macOS])),
+      ],
+      path: "Sources",
+      linkerSettings: [
+        .linkedFramework("MobileVLCKit", .when(platforms: [.iOS])),
+        .linkedFramework("TVVLCKit", .when(platforms: [.tvOS])),
+        .linkedFramework("VLCKit", .when(platforms: [.macOS])),
+      ]
+    ),
+    .binaryTarget(
+      name: "MobileVLCKit",
+      url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/3.7.2/MobileVLCKit.xcframework.zip",
+      checksum: "5b21d834499fb3331f55cb60402e5814690665ac71b7bb24d033922283a5a364"
+    ),
+    .binaryTarget(
+      name: "TVVLCKit",
+      url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/3.7.2/TVVLCKit.zip",
+      checksum: "013187589c0529793fe2f86ed267ddd237b30e6a5442f382bfbda05682f29305"
+    ),
+    .binaryTarget(
+      name: "VLCKit",
+      url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/3.7.2/VLCKit.zip",
+      checksum: "f4aa1f88913952735f6aca013ade7cd61c4414a42b4d2c25056f82124452b4bb"
+    ),
+  ]
 )
 
