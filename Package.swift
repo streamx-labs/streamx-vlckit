@@ -39,12 +39,12 @@ let package = Package(
     ),
     .binaryTarget(
       name: "TVVLCKit",
-      url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/3.7.2/TVVLCKit.zip",
+      url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/3.7.2/TVVLCKit.xcframework.zip",
       checksum: "013187589c0529793fe2f86ed267ddd237b30e6a5442f382bfbda05682f29305"
     ),
     .binaryTarget(
       name: "VLCKit",
-      url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/3.7.2/VLCKit.zip",
+      url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/3.7.2/VLCKit.xcframework.zip",
       checksum: "f4aa1f88913952735f6aca013ade7cd61c4414a42b4d2c25056f82124452b4bb"
     ),
   ]
