@@ -1,7 +1,4 @@
-#if os(tvOS)
-@_exported import TVVLCKit
-#elseif os(iOS) && !targetEnvironment(macCatalyst)
-@_exported import MobileVLCKit
-#elseif os(macOS)
+// VLCKitSPM
+// Re-exports VLCKit for Swift Package Manager usage
+
 @_exported import VLCKit
-#endif
