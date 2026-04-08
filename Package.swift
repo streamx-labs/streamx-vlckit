@@ -27,17 +27,17 @@ let package = Package(
     .binaryTarget(
       name: "MobileVLCKit",
       url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/4.0.7/MobileVLCKit.xcframework.zip",
-      checksum: "b1b79f0f91d71de4617a8f8d53f190c5c8e2a2796a7e353d2f2812ed105a8832"
+      checksum: "8876d37dced76a840ede02c54eb8cb36da39822c342d2b15c90179a56e76e245"
     ),
     .binaryTarget(
       name: "TVVLCKit",
       url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/4.0.7/TVVLCKit.xcframework.zip",
-      checksum: "c159432f0f0858a7b5512fa56aa5e006c8564c8e1c806340962c8a98de464370"
+      checksum: "6c3cf7e0b0eeb7490f0335d88be473535d7b56c0a2831cca7fe5292e510d360a"
     ),
     .binaryTarget(
       name: "VLCKit",
       url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/4.0.7/VLCKit.xcframework.zip",
-      checksum: "62bb9078964acd2d435b849d7bbda8fe663515d592389f1d39ef13676469eae9"
+      checksum: "cd6506515bbf62db1d0cf11e1eec02a60bd528eb25e9cca06ef89d6195fe5544"
     ),
   ]
 )
