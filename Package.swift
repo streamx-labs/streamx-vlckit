@@ -1,3 +1,6 @@
+// swift-tools-version: 5.9
+import PackageDescription
+
 let vlcBinary = Target.binaryTarget(
     name: "VLCKit",
     url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/4.0.8/VLCKit.xcframework.zip",
