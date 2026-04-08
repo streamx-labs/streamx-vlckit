@@ -1,44 +1,49 @@
-// swift-tools-version:5.9
-
-import PackageDescription
+let vlcBinary = Target.binaryTarget(
+    name: "VLCKit",
+    url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/4.0.8/VLCKit.xcframework.zip",
+    checksum: "e94cbe83cc68a91e2fba4393bae9b6a4c11e66aa97c95e45318d1b504a5334c5"
+)
 
 let package = Package(
-    name: "VLC",
+    name: "VLCKitSPM",
     platforms: [
-    .iOS(.v14),
-    .tvOS(.v14),
-    .macOS(.v12),
-  ],
-  products: [
-    .library(
-      name: "MobileVLCKit",
-      targets: ["MobileVLCKit"]
-    ),
-    .library(
-      name: "TVVLCKit",
-      targets: ["TVVLCKit"]
-    ),
-    .library(
-      name: "VLCKit",
-      targets: ["VLCKit"]
-    )
-  ],
-  targets: [
-    .binaryTarget(
-      name: "MobileVLCKit",
-      url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/4.0.7/MobileVLCKit.xcframework.zip",
-      checksum: "b1b79f0f91d71de4617a8f8d53f190c5c8e2a2796a7e353d2f2812ed105a8832"
-    ),
-    .binaryTarget(
-      name: "TVVLCKit",
-      url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/4.0.7/TVVLCKit.xcframework.zip",
-      checksum: "c159432f0f0858a7b5512fa56aa5e006c8564c8e1c806340962c8a98de464370"
-    ),
-    .binaryTarget(
-      name: "VLCKit",
-      url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/4.0.7/VLCKit.xcframework.zip",
-      checksum: "62bb9078964acd2d435b849d7bbda8fe663515d592389f1d39ef13676469eae9"
-    ),
-  ]
+        .macOS(.v10_15),
+        .iOS(.v13),
+        .tvOS(.v13),
+        .watchOS(.v6),
+        .visionOS(.v1)
+    ],
+    products: [
+        .library(name: "VLCKitSPM", targets: ["VLCKitSPM"])
+    ],
+    dependencies: [],
+    targets: [
+        vlcBinary,
+        .target(
+            name: "VLCKitSPM",
+            dependencies: [.target(name: "VLCKit")],
+            linkerSettings: [
+                // iOS/tvOS frameworks
+                .linkedFramework("QuartzCore", .when(platforms: [.iOS])),
+                .linkedFramework("CoreText", .when(platforms: [.iOS, .tvOS])),
+                .linkedFramework("AVFoundation", .when(platforms: [.iOS, .tvOS])),
+                .linkedFramework("Security", .when(platforms: [.iOS])),
+                .linkedFramework("CFNetwork", .when(platforms: [.iOS])),
+                .linkedFramework("AudioToolbox", .when(platforms: [.iOS, .tvOS])),
+                .linkedFramework("OpenGLES", .when(platforms: [.iOS, .tvOS])),
+                .linkedFramework("CoreGraphics", .when(platforms: [.iOS])),
+                .linkedFramework("VideoToolbox", .when(platforms: [.iOS, .tvOS])),
+                .linkedFramework("CoreMedia", .when(platforms: [.iOS, .tvOS])),
+                // macOS frameworks
+                .linkedFramework("Foundation", .when(platforms: [.macOS])),
+                // System libraries
+                .linkedLibrary("c++", .when(platforms: [.iOS, .tvOS, .macOS])),
+                .linkedLibrary("xml2", .when(platforms: [.iOS, .tvOS, .macOS])),
+                .linkedLibrary("z", .when(platforms: [.iOS, .tvOS, .macOS])),
+                .linkedLibrary("bz2", .when(platforms: [.iOS, .tvOS, .macOS])),
+                .linkedLibrary("iconv")
+            ]
+        )
+    ]
 )
 
