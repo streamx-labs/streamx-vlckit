@@ -26,18 +26,18 @@ let package = Package(
   targets: [
     .binaryTarget(
       name: "MobileVLCKit",
-      url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/4.0.10/MobileVLCKit.xcframework.zip",
-      checksum: "f7b2cb2b0a37fde26e4252a0fc3776aa3ed683663be7c9e8727635c3aa716270"
+      url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/4.0.11/MobileVLCKit.xcframework.zip",
+      checksum: "685c8e494c2c0c8a99296a809f9f20264343e3b771ae50c7a9d1a0766fcaa504"
     ),
     .binaryTarget(
       name: "TVVLCKit",
-      url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/4.0.10/TVVLCKit.xcframework.zip",
-      checksum: "6c3cf7e0b0eeb7490f0335d88be473535d7b56c0a2831cca7fe5292e510d360a"
+      url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/4.0.11/TVVLCKit.xcframework.zip",
+      checksum: "9ba8b5b3e913a13c0bc3ce55318dc5a9f7a295df07acd0e1e0a3e5f82ebb0b03"
     ),
     .binaryTarget(
       name: "VLCKit",
-      url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/4.0.10/VLCKit.xcframework.zip",
-      checksum: "cd6506515bbf62db1d0cf11e1eec02a60bd528eb25e9cca06ef89d6195fe5544"
+      url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/4.0.11/VLCKit.xcframework.zip",
+      checksum: "2001ddf2c9c27458ab7befe45623c91699a4391e4f24566e46c2bb30d154e484"
     ),
   ]
 )
