@@ -16,7 +16,7 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "VLCKit",
-            url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/untagged-9d407dc7e1148b76ee0d/VLCKit_4_0_20260831_1526.zip",
+            url: "https://github.com/streamx-labs/streamx-vlckit/releases/download/4.0.0-a24/VLCKit_4_0_20260831_1526.zip",
             checksum: "c61a42052ec4c1315325fba81f8893f4ccf639d92bf61dd1b3c37c3a2f26b8e3"
         )
     ]
